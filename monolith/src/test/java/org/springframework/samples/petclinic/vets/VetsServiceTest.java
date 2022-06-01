@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -16,16 +17,15 @@ public class VetsServiceTest {
 
     @Test
     void shouldFindVets() {
-        Collection<Vet> vets = service.allVets();
+        Collection<VetsDTO> vets = service.allVets();
 
         assertThat(vets)
-            .filteredOn(vet -> vet.getId() == 3)
+            .filteredOn(vet -> Objects.equals(vet.getLastName(), "Douglas"))
             .hasSize(1)
             .first()
-            .hasFieldOrPropertyWithValue("lastName", "Douglas")
+            .hasFieldOrPropertyWithValue("firstName", "Linda")
             .hasFieldOrPropertyWithValue("nrOfSpecialties", 2)
-            .extracting(Vet::getSpecialties).asList()
-            .extracting("name")
+            .extracting(vetsDTO -> vetsDTO.getSpecialtyName()).asList()
             .containsExactly("dentistry", "surgery");
     }
 }
