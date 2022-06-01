@@ -1,6 +1,5 @@
 package org.springframework.samples.petclinic.vets;
 
-import org.springframework.samples.petclinic.model.NamedEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
