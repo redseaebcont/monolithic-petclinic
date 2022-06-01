@@ -21,7 +21,7 @@ public class MockMvcDemoTest {
     void receive_hello_world() throws Exception {
         mockMvc.perform(get("/api"))
             .andExpect(status().isOk())
-            .andExpect(jsonPath("$.message").value("hello world"));
+            .andExpect(jsonPath("$.message").value("Hello from Mehran Hosseini"));
     }
 }
 
