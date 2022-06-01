@@ -48,7 +48,8 @@ public class VetsClientTest {
                     "    \"nrOfSpecialties\": 1\n" +
                     "  }" +
                     "]")));
-        VetsClient vetsClient = new VetsClient("http://localhost:8089/vets");
+        //real url => http://localhost:8001/vets
+        VetsClient vetsClient = new VetsClient("http://localhost:8001/vets");
 
         List<VetDto> vets = vetsClient.allVets();
 
